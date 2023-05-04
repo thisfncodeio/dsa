@@ -1,5 +1,16 @@
-# Search, Access (Read), Insert, Delete
-# --------------------------------------------
+# Memory: Each element is stored in a separate memory location, and the memory 
+#         locations are adjacent to each other in a contiguous block of memory.
+#
+#         +---+---+---+---+---+---+---+
+#         | 9 | 0 | 2 | 1 | 0 |   |   |
+#         +---+---+---+---+---+---+---+
+#         |   |   |   |   |   |   |   |
+#         +---+---+---+---+---+---+---+
+#         |   |   |   |   |   |   |   |
+#         +---+---+---+---+---+---+---+
+#         Note: The plus signs and dashes represent the boundaries between memory locations.
+
+# ----------------------------------------------------------------------------------------
 
 # Unordered Array
 ##################

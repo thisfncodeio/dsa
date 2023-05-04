@@ -15,6 +15,6 @@
 </figure>
 
 * O(1) => Constant Time; Always the same irregardless of input size
-* O(n) => Linear Time; Increases as input increases  
-* O(log n) =>
-* O(n2) =>
+* O(n) => Linear Time; Increases proportionally as input size increases  
+* O(log n) => Logarithmic Time; Halved with each iteration
+* O(n^2) => Quadratic Time; Squared to the input size

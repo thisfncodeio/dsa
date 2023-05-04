@@ -1,12 +1,31 @@
-# TASK: Searching for an element in an array
-# Returns index of the target element or `nil`
-
+# BINARY SEARCH
+# --------------
+# Best Use Case: 1. When searching large sorted arrays for a specific element.
+#                2. The problem involves finding a value that satisfies a certain condition.
+#                3. The problem involves searching for a specific value or finding the optimal value for some criteria.
+#                4. The problem has a large search area that can be divided in half with each iteration of the algorithm.
+#                5. The problem must be solved in logarithmic time complexity.
+#
+# Worst Use Case: 1. When the array is unsorted or frequently modified. (The array must go unchanged during the search process. If a
+#                    change is made, the array may need to be re-sorted or have the elements shifted, which could be time-consuming.)
+#                 2. The array contains duplicate elements. (The ambiguity would make it difficult to know which of the indexes to return)
+#                 3. When you need to find the min and max values in an array. (In order to find the min and max values, the array would first need to be sorted.
+#                    Linear Search would probably be a better algorithm in this case, since you would not need to sort)
+#                 4. When you need to find all occurrences of an element. (Linear Search or Hash Tables would be better algorithms)
+#--------------------------
 # Time Complexity: O(logn) => We reduce the search area by half on each pass
 # Space Complexity: O(1) => No matter how big or small the array gets, we only every initial the same 
 #                           variables (lower_bound, upper_bound, mid_idx, mid_value)
 #                           Note: This is different from a recursive implementation of Binary Search which
 #                           has a space complexity of O(logn)
+# -----------------------------------------
+# NeetCode Practice Problems: https://neetcode.io/practice (Show Grouped View > Binary Search)
+# LeetCode Practice Problems: https://leetcode.com/tag/binary-search/
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+# TASK: Searching for an element in an array
+# Returns index of the target element or `nil`
 
 def binary_search(array, target)
   # Setting the initial search area to be the entire array
@@ -47,6 +66,7 @@ p "The value 14 in [7, 7, 8, 14, 82] has and index of: #{binary_search([7, 7, 8,
 p "The value 7 in [7, 7, 8, 14, 82] has and index of: #{binary_search([7, 7, 8, 14, 82], 7) || "nil"}"
 p "The value 82 in [7, 7, 8, 14, 82] has and index of: #{binary_search([7, 7, 8, 14, 82], 82) || "nil"}"
 puts
+
 # A stipulation of the binary_search algorithm is that in order for it to work, the array MUST be sorted.
 # This is good for searching for a word in a dictionary, or a file in a directory, or a song in a playlist as examples.
 # It could also be used to let you know if a word shows up in a sentence but the overhead of having to sort
@@ -54,8 +74,8 @@ puts
 p "The value 'array' in ['an', 'an', 'and', 'array', 'array', 'english', 'english', 'fork', 'of', 'of', 'online', 'playground', 'this', 'to', 'use', 'view', 'words', 'words'] has and index of: #{binary_search(["an", "an", "and", "array", "array", "english", "english", "fork", "of", "of", "online", "playground", "this", "to", "use", "view", "words", "words"], "array") || "nil"}"
 puts
 
-################################################
-################################################
+################################################################################################
+################################################################################################
 
 # Task: First Occurrence (using Binary Search)
 # Returns the index of the first occurrence of the target element, or `nil`
@@ -105,6 +125,8 @@ p "The first occurrence of the value 7 in [7, 7, 8, 14, 82] has an index of: #{b
 p "The first occurrence of the value 9 in [7, 7, 8, 14, 82] has an index of: #{binary_search_first_occurrence([7, 7, 8, 14, 82], 9) || "nil"}"
 puts
 
+################################################################################################
+################################################################################################
 
 # Task: Last Occurrence (using Binary Search)
 # Returns the index of the last occurrence of the target element, or `nil`
@@ -152,4 +174,53 @@ end
 
 p "The last occurrence of the value 7 in [7, 7, 8, 14, 82] has an index of: #{binary_search_last_occurrence([7, 7, 8, 14, 82], 7) || "nil"}"
 p "The last occurrence of the value 9 in [7, 7, 8, 14, 82] has an index of: #{binary_search_last_occurrence([7, 7, 8, 14, 82], 9) || "nil"}"
+puts
+
+################################################################################################
+################################################################################################
+
+# Task: Square Root of a number (using Binary Search)
+# Returns the square root of a given number
+
+def binary_search_sqrt(num)
+  # Any number that is less than 2 is its own square root, so return it
+  return num if num < 2
+
+  # Setting the initial bounds to be from 1 to the value of `num`
+  lower_bound = 1
+  upper_bound = num
+
+  # We want to check all numbers
+  while lower_bound <= upper_bound
+    # This could also be written as `(lower_bound + upper_bound) / 2` but on rare occasions
+    # may run into a situation where you run into an integer overflow if the array indexes get
+    # too large for an integer to hold accurately
+    midpoint = lower_bound + (upper_bound - lower_bound) / 2
+    midpoint_squared = midpoint * midpoint
+    # midpoint = (lower_bound + upper_bound) / 2
+
+    # If the square of the midpoint is equal to the target number, 
+    # we've found the square root, so return the midpoint
+    if midpoint_squared == num
+      return midpoint.to_f
+    # If the square of the midpoint is less than the target number, the square root is somewhere 
+    # in the upper half of the search space, so adjust the lower bound to midpoint + 1
+    elsif midpoint_squared < num
+      lower_bound = midpoint + 1
+    # If the square of the midpoint is greater than the target number, the square root is somewhere 
+    # in the lower half of the search space, so adjust the upper bound to midpoint - 1
+    elsif midpoint_squared > num
+      upper_bound = midpoint - 1
+    end
+  end
+
+  # If the loop exits without finding an exact match, the closest square root is the value of the upper bound
+  return (upper_bound + (num / upper_bound.to_f)) / 2
+end
+
+p "The square root of 2 is: #{binary_search_sqrt(2)}"
+p "The square root of 10 is: #{binary_search_sqrt(10)}"
+p "The square root of 25 is: #{binary_search_sqrt(25)}"
+p "The square root of 36 is: #{binary_search_sqrt(36)}"
+p "The square root of 100 is: #{binary_search_sqrt(100)}"
 puts
