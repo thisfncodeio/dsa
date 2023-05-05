@@ -59,7 +59,7 @@ def is_anagram(s, t)
     hash[current_t_letter] -= 1
   end
 
-  hash.all? { |_, value| v.zero? }
+  hash.all? { |_, value| value.zero? }
 end
 
 # ===================================================================== #
