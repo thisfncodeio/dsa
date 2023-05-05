@@ -11,22 +11,29 @@
 # -------------------------------------
 
 def search(nums, target)
+  # Set the initial range of the search to cover the whole array.
   lower_bound = 0
   upper_bound = nums.length - 1
 
+  # Continue searching while the range is not empty.
   while lower_bound <= upper_bound
+    # Calculate the middle index and value of the current range.
     mid_idx = lower_bound + (upper_bound - lower_bound) / 2
     mid_val = nums[mid_idx]
 
+    # If the middle value is equal to the target, return its index.
     if mid_val == target
       return mid_idx
+    # If the middle value is greater than the target, search the left half of the current range.
     elsif mid_val > target
       upper_bound = mid_idx - 1
+    # If the middle value is less than the target, search the right half of the current range.
     else
       lower_bound = mid_idx + 1
     end
   end
 
+  # If the target is not found, return -1.
   return -1
 end
 

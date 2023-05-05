@@ -10,17 +10,23 @@
 // -------------------------------------
 
 // var containsDuplicate = (nums) => {
+//   // Initialize an empty array to store unique values
 //   let uniq = [];
+//   // Initialize a boolean variable to keep track of whether duplicates are found
 //   let dupes = false;
 
+//   // Iterate through each element in the array
 //   nums.forEach((num) => {
+//     // If the current element is already in the unique array, set dupes to true
 //     if (uniq.indexOf(num) != -1) {
 //       dupes = true;
 //     } else {
+//       // Otherwise, add the current element to the unique array
 //       uniq.push(num);
 //     }
 //   });
 
+//   // Return the value of the dupes variable
 //   return dupes;
 // };
 
@@ -34,15 +40,20 @@
 // -------------------------------------
 
 // var containsDuplicate = (nums) => {
+//   // Create a new Map object
 //   const numMap = new Map();
-//
+
+//   // Loop through each number in 'nums'
 //   for (let i = 0; i < nums.length; i++) {
+//     // If 'numMap' has the number as a key, return 'true' since it is a duplicate
 //     if (numMap.has(nums[i])) {
 //       return true;
+//       // Otherwise, set the number as a key in 'numMap'
 //     } else {
 //       numMap.set(nums[i]);
 //     }
 //   }
+//   // Return 'false' if no duplicates were found
 //   return false;
 // };
 
@@ -55,9 +66,18 @@
 
 // -------------------------------------
 
-var containsDuplicate = (nums) => {
-  return [...new Set(nums)].length != nums.length;
-};
+// var containsDuplicate = (nums) => {
+//   // Use a Set to store the unique values of the input array
+//   const uniqueNums = new Set(nums);
+
+//   // Spread the Set back into an array to compare lengths
+//   // and check for duplicates
+//   const uniqueArr = [...uniqueNums];
+//   const hasDuplicates = uniqueArr.length !== nums.length;
+
+//   // Return whether duplicates were found
+//   return hasDuplicates;
+// };
 
 // ===================================================================== //
 

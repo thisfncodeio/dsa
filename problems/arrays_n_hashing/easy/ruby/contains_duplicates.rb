@@ -10,6 +10,8 @@
 # -------------------------------------
 
 # def contains_duplicate(nums)
+#   # Check if the length of the list is the same as the length of the list with unique elements
+#   # If they are not the same, there must be duplicates in the list
 #   !(nums.length == nums.uniq.length)
 # end
 
@@ -23,16 +25,22 @@
 # -------------------------------------
 
 # def contains_duplicate(nums)
+#   # Create an empty array to store unique numbers
 #   uniq_nums = []
 
+#   # Iterate through the array of numbers
 #   nums.each do |num|
+#     # Check if the number is already in the unique numbers array
 #     if uniq_nums.include?(num)
+#       # If it is, return true (the array contains duplicates)
 #       return true
 #     end
 
+#     # If the number is not in the unique numbers array, add it to the array
 #     uniq_nums << num
 #   end
 
+#   # If the loop completes without finding any duplicates, return false
 #   return false
 # end
 
@@ -46,17 +54,22 @@
 # -------------------------------------
 
 def contains_duplicate(nums)
-  nums_hash = {}
+  # Create an empty hash table to store the elements of the array
+  nums_hash = {}  
 
-  nums.each do |num|
-    if nums_hash.has_key?(num)
+  # Loop through each element in the array
+  nums.each do |num|  
+    # If the current element is already in the hash table, return true
+    if nums_hash.has_key?(num)  
       return true
     end
 
-    nums_hash[num] = nil
+    # Otherwise, add the current element to the hash table
+    nums_hash[num] = nil  
   end
 
-  return false
+  # If we reach the end of the loop, it means there are no duplicates in the array
+  return false  
 end
 
 # ===================================================================== #
