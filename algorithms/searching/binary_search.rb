@@ -1,9 +1,9 @@
 # BINARY SEARCH
 # --------------
-# Best Use Case: 1. When searching large sorted arrays for a specific element.
+# Best Use Case: 1. When searching large sorted (asc or desc) arrays for a specific element.
 #                2. The problem involves finding a value that satisfies a certain condition.
 #                3. The problem involves searching for a specific value or finding the optimal value for some criteria.
-#                4. The problem has a large search area that can be divided in half with each iteration of the algorithm.
+#                4. The problem has a large search area that can be divided in half with each iteration of the algorithm. (Binary Search is considered a divide-and-conquer algorithm)
 #                5. The problem must be solved in logarithmic time complexity.
 #
 # Worst Use Case: 1. When the array is unsorted or frequently modified. (The array must go unchanged during the search process. If a
@@ -19,7 +19,7 @@
 #                           Note: This is different from a recursive implementation of Binary Search which
 #                           has a space complexity of O(logn)
 # -----------------------------------------
-# NeetCode Practice Problems: https://neetcode.io/practice (Show Grouped View > Binary Search)
+# NeetCode Practice Problems: https://neetcode.io/roadmap (Binary Search)
 # LeetCode Practice Problems: https://leetcode.com/tag/binary-search/
 
 # ----------------------------------------------------------------------------------------------------------------------

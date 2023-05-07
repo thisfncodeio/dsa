@@ -3,6 +3,12 @@
 # Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
 # You must write an algorithm with O(log n) runtime complexity.
 
+# -------------------------------------
+
+# Pattern to solve similar problem (How would you know what the best algorithm was to solve the problem?): <Pattern>
+
+# -------------------------------------
+
 # VERSION 1:
 # Runtime: 96 ms
 # Memory: 213.9 mb
