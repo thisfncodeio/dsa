@@ -6,11 +6,9 @@
 #                4. The problem has a large search area that can be divided in half with each iteration of the algorithm. (Binary Search is considered a divide-and-conquer algorithm)
 #                5. The problem must be solved in logarithmic time complexity.
 #
-# Worst Use Case: 1. When the array is unsorted or frequently modified. (The array must go unchanged during the search process. If a
-#                    change is made, the array may need to be re-sorted or have the elements shifted, which could be time-consuming.)
+# Worst Use Case: 1. When the array is unsorted or frequently modified. (The array must go unchanged during the search process. If a change is made, the array may need to be re-sorted or have the elements shifted, which could be time-consuming.)
 #                 2. The array contains duplicate elements. (The ambiguity would make it difficult to know which of the indexes to return)
-#                 3. When you need to find the min and max values in an array. (In order to find the min and max values, the array would first need to be sorted.
-#                    Linear Search would probably be a better algorithm in this case, since you would not need to sort)
+#                 3. When you need to find the min and max values in an array. (In order to find the min and max values, the array would first need to be sorted. Linear Search would probably be a better algorithm in this case, since you would not need to sort)
 #                 4. When you need to find all occurrences of an element. (Linear Search or Hash Tables would be better algorithms)
 #--------------------------
 # Time Complexity: O(logn) => We reduce the search area by half on each pass
