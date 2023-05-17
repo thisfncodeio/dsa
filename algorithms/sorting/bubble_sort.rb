@@ -156,3 +156,50 @@ p "[
   { name: "Bob", age: 35 }
 ])}"
 puts
+
+################################################################################################
+################################################################################################
+
+# TASK: Sorting an array of object elements in ascending order
+# Returns the ordered array
+
+def bubble_sort_no_flags(array) 
+  # Index of the last element in the array
+  last_swapped_idx = array.length - 1 
+
+  # Continue iterating until `last_swapped_idx` is 0, meaning the first element, which means all elements have been sorted
+  # Each iteration will be a single pass from beginning to the end of the array
+  while last_swapped_idx > 0 
+    # We need to initialize a new variable for use inside the `each`, else we get a variable undefined error on line 193 
+    new_last_swapped_idx = 0
+
+    # Iterate over each pair of adjacent elements
+    (0...last_swapped_idx).each do |idx|
+      # Check if the objects name value is greater than the next objects name value
+      if array[idx] > array[idx+1]  
+        # If the current objects name value is greater than the next objects name value, swap the objects
+        array[idx], array[idx+1] = array[idx+1], array[idx]  
+        # Set `new_last_swapped_idx` to the index of the first swapped element when a swap occurs
+        # Theoretically on each pass, the last element will be in the correct position so the index will 
+        # always be one less than the last sorted elements index
+        new_last_swapped_idx = idx  
+      end
+    end
+
+    # This sets the "up to" range for when parsing the array
+    # Theoretically on each pass, the last element will be in the correct position so the index will 
+    # always be one less than the last sorted elements index
+    # This is to avoid unnecessary comparisons and swaps with already sorted elements, which improves efficiency
+    last_swapped_idx = new_last_swapped_idx
+  end
+
+  # Return the sorted array
+  return array  
+end
+
+# Even though the Bubble Sort algorithm is not considered a "stable sorting algorithm" and there is slight concern that the algorithm might not preserve the relative order of equal elements, it looks like it was able to maintain that ordering in this instance. (ie. Alice 25, still comes before Alice 20 after sorting and so do the Bobs)
+p "[93, 13, 83, 60, 52, 28, 23, 42, 8, 73] sorted in ascending order is: #{bubble_sort_no_flags([93, 13, 83, 60, 52, 28, 23, 42, 8, 73])}"
+p "[55, 86, 90, 60, 1, 21, 6, 82, 66, 9] sorted in ascending order is: #{bubble_sort_no_flags([55, 86, 90, 60, 1, 21, 6, 82, 66, 9])}"
+p "[13, 48, 34, 32, 69, 87, 4, 74, 36, 22] sorted in ascending order is: #{bubble_sort_no_flags([13, 48, 34, 32, 69, 87, 4, 74, 36, 22])}"
+p "[87, 76, 81, 27, 63, 31, 68, 95, 48, 100] sorted in ascending order is: #{bubble_sort_no_flags([87, 76, 81, 27, 63, 31, 68, 95, 48, 100])}"
+puts
